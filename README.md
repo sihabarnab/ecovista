@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## 📋 Project Requirements
 
-## Getting Started
+**Ecovista** is a weather and geolocation-based web application built with **Next.js 14**. It displays real-time environmental data based on the user’s current location and also supports manual location switching.
 
-First, run the development server:
+### ✅ Core Functional Requirements
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- 📍 **Detect Current Location**
+  - Automatically fetch user’s latitude and longitude using `navigator.geolocation`.
+  - Reverse geocode coordinates into city and country.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 🌦️ **Display Current Weather**
+  - Temperature (°C/°F)
+  - Weather condition (e.g., sunny, rainy)
+  - Humidity
+  - Wind speed and direction
+  - Weather icons for current status
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- 🌫️ **Air Pollution & Air Quality**
+  - Show Air Quality Index (AQI): Good, Moderate, Unhealthy, etc.
+  - Pollutants: PM2.5, PM10, CO, NO2, SO2, O3
+  - Fetched via OpenWeatherMap Air Pollution API
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- 🌬️ **Wind Information**
+  - Wind speed (m/s or km/h)
+  - Directional indicator (N/S/E/W)
 
-## Learn More
+- 🔁 **Location Switch / Search**
+  - Manual input to search weather by city name or ZIP
+  - Auto-update weather and AQI based on selection
+  - Save selected location to local storage
 
-To learn more about Next.js, take a look at the following resources:
+- 🧭 **Toggle Button for Location Mode**
+  - Option to switch between:
+    - 📍 “Use My Location”
+    - 🏙️ “Select Another Location”
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### 🛠️ Technical Requirements
 
-## Deploy on Vercel
+- **Framework**: Next.js 14 (App Router)
+- **Styling**: Tailwind CSS
+- **State Management**: React hooks (optional Zustand)
+- **APIs**:
+  - OpenWeatherMap (Weather + Air Pollution)
+  - Optional: OpenCage / OpenWeatherMap Geocoding
+- **Environment Variables**:
+  - `NEXT_PUBLIC_OPENWEATHER_API_KEY`
+  - `NEXT_PUBLIC_GEOCODING_API_KEY`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### 🧪 CI/CD Requirements
+
+- GitHub Actions:
+  - Build, Lint, Test on push to `main` or `develop`
+- Optional: Preview deployments with Vercel
+
+---
+
+
