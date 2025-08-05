@@ -1,9 +1,4 @@
-import Image from "next/image";
-
+import LocationDetector from "@/components/LocationDetector";
 export default function Home() {
-  return (
-    <main>
-      <h1>Welcome to My Website</h1>   
-    </main>
-  );
+  return <LocationDetector />;
 }
