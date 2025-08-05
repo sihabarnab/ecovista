@@ -13,15 +13,24 @@ const LocationDetector = () => {
 
   useEffect(() => {
     setLoading(true);
-    const params = new URLSearchParams(searchParams);
+    const params = new URLSearchParams(searchParams.toString());
 
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        params.set("latitude", position.coords.latitude);
-        params.set("longitude", position.coords.longitude);
-        setLoading(false);
-        router.push(`/current?${params.toString()}`);
-      });
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          params.set("latitude", position.coords.latitude);
+          params.set("longitude", position.coords.longitude);
+          setLoading(false);
+          router.push(`/current?${params.toString()}`);
+        },
+        (error) => {
+          setLoading(false);
+          // Optional: Show error message to user
+        }
+      );
+    } else {
+      setLoading(false);
+      // Optional: Show error message to user
     }
   }, [pathname, searchParams, router]);
 
