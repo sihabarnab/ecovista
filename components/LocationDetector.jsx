@@ -6,6 +6,7 @@ import Image from "next/image";
 
 const LocationDetector = () => {
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const searchParams = useSearchParams();
   const pathname = usePathname();
@@ -25,12 +26,12 @@ const LocationDetector = () => {
         },
         (error) => {
           setLoading(false);
-          // Optional: Show error message to user
+          setError("Location access denied or failed.");
         }
       );
     } else {
       setLoading(false);
-      // Optional: Show error message to user
+      setError("Geolocation is not supported by your browser.");
     }
   }, [pathname, searchParams, router]);
 
@@ -47,6 +48,9 @@ const LocationDetector = () => {
           />
           <p className="text-4xl text-center">Detecting Location....</p>
         </>
+      )}
+      {error && (
+        <p className="text-red-400 mt-4 text-lg text-center">{error}</p>
       )}
     </div>
   );
