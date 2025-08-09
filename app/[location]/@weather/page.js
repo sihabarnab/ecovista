@@ -1,6 +1,5 @@
 import WeatherComponent from "@/components/WeatherComponent";
 
-WeatherComponent;
 const WeatherPage = ({
   params: { location },
   searchParams: { latitude, longitude },
