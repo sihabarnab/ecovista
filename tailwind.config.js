@@ -15,6 +15,11 @@ module.exports = {
       },
       fontFamily: {
         inter: ["Inter", "sans-serif"],
+        retro: ["Orbitron", "sans-serif"],
+      },
+      animation: {
+        "fade-in": "fade-in 0.6s ease-out",
+        flicker: "flicker 2.5s infinite",
       },
     },
   },
