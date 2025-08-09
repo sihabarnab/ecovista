@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import { motion } from "framer-motion";
 import Card from "./Card";
@@ -34,8 +35,8 @@ const NoLocationInfo = () => {
           No Location Information
         </h2>
         <p className="text-gray-400 max-w-md">
-          We couldn't find any location details for your request. Please check
-          your settings or try again later.
+          We couldn&apos;t find any location details for your request. Please
+          check your settings or try again later.
         </p>
       </motion.div>
     </Card>
